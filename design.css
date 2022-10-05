@@ -1,0 +1,241 @@
+body{
+    margin:0;
+    display:block;
+    width:100%;
+    height:100%;
+    padding:0;
+    user-select:none;
+}
+.actionbar{
+    display:grid;
+    width:100%;
+    height:45px;
+    box-shadow:1px 0px 8px #848484;
+    grid-template-columns:20% 60% 20%;
+    overflow:normal;
+}
+bars{
+    width:50%;
+    height:60%;
+    display:block;
+    background:white;
+    margin:7% auto;
+    /*box-shadow:inset 0px 0px 3px #8D8D8D;*/
+    border-radius:5px;
+    position:relative;
+    overflow:hidden;
+}
+bars::after{
+    content:"";
+    width:80%;
+    height:3px;
+    background:#4C4C4C;
+    position:absolute;
+    display:block;
+    top:5px;
+}bars::before{
+    content:"";
+    width:80%;
+    height:3px;
+    background:#4C4C4C;
+    position:absolute;
+    display:block;
+    top:13px;
+}
+bar{
+    width:80%;
+    height:3px;
+    background:#4C4C4C;
+    position:absolute;
+    display:block;
+    top:21px;
+}
+name{
+    display:block;
+    color:#868686;
+    background:;
+    width:70%;
+    height:100%;
+    font-size:33px;
+    padding-top:2px;
+    box-sizing:border-box;
+    font-family:Times New Roman;
+    font-variant:small-caps;
+}
+menu{
+    width:75%;
+    height:100%;
+    position:fixed;
+    top:-20px;
+    right:-100%;
+    background:#fff;
+    display:block;
+    border-top:10px solid #9C9C9C;
+    box-shadow:0px 4px 6px #8C8C8C;
+    transition-duration:0.5s;
+    padding-left:5px;
+    
+}
+nav{
+    width:60%;
+    box-shadow:0px 0px 1px #AFAFAF;
+    border-radius:4px;
+    margin:10px 0px;
+    float:left;
+    position:relative;
+    display:inline-block;
+    padding:8px 50px 8px 5px;
+    border-left:8px solid #979797;
+    font-family:Times New Roman;
+    font-feature-settings:"smcp"on;
+    transition-duration:0.3s;
+    user-select:none;
+    display:block;
+    
+}
+nav:active{
+    background:#B1B1B1;
+    color:white;
+}
+logo{
+    display:block;
+    width:100%;
+    height:200px;
+    background:#A4A4A4;
+    margin-left:-4px;
+    position:relative;
+}
+new{
+    padding-left:5px;
+    border-width:1.4px;
+    border-color:#808080;
+    border-style:solid;
+    margin-left:2px;
+    border-radius:5px;
+}
+h{
+    color:#606060;
+    font-family:Times New Roman;
+    position:absolute;
+    bottom:20px;
+    left:20px;
+    font-size:34px;
+    text-transform:uppercase;
+    border-right:5px solid #424242;
+    padding-right:7px;
+    border-radius:7px;
+    user-select:none;
+}
+descript{
+    position:absolute;
+    bottom:2px;
+    left:140px;
+    font-size:16px;
+    font-variant:small-caps;
+    text-transform:capitalize;
+    color:#1F3965;
+}
+logo embed{
+    widows:1;
+    width:100%;
+    height:100%;
+}
+layout{
+    display:block;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:white;
+}
+other{
+    display:block;
+    width:100%;
+    height:100%;
+    background:white;
+    position:absolute;
+    top:100%;
+    transition-duration:0.5s;
+    box-shadow:0px 0px 7px #7C7C7C;
+    overflow:scroll;
+    padding:0;
+}
+toggle{
+    width:50px;
+    height:50px;
+    border-radius:50px;
+    box-shadow:0px 0px 5px #5B5B5B;
+    display:block;
+    top:90%;
+    left:80%;
+    position:relative;
+    background:white;
+}
+toggle::before{
+    content:"";
+    width:20px;
+    height:20px;
+    border:2px solid #8B8B8B;
+    position:relative;
+    margin:auto;
+    display:block;
+    top:8px;
+    border-top:none;
+    border-left:none;
+    transform:rotate(40deg);
+}
+view{
+    display:block;
+    width:100%;
+    height:100%;
+    background:transparent;
+    margin-top:-50px;
+    overflow:scroll;
+}
+view h1{
+    font-size:23px;
+    font-weight:350;
+    line-height:35px;
+  }
+view artical{
+    display:block;
+    width:fit-content;
+    height:fit-content;
+    padding:5px;
+    box-shadow:border-width;
+    margin:10px auto;
+    box-shadow:0px 0px 6px #9D9D9D;
+    border-radius:5px;
+}
+view li{
+    list-style-position:inside;
+    list-style-type:circle;
+    font-size:16px;
+    color:#003C6C;
+}
+view p{
+    font-size:14px;
+    user-select:auto;
+    text-indent:35px;
+}
+ul{
+    padding:10px;
+    margin:1px;
+    box-sizing:border-box;
+    display:block;
+    box-shadow:0px 0px 7px #A1A1A1;
+    width:99%;
+}
+greet{
+    display:block;
+    position:relative;
+    font-size:25px;
+    text-align:right;
+    font-weight:250;
+    color:#421D31;
+    box-sizing:border-box;
+    padding-right:15px;
+}
+view embed{
+    display:block;
+    margin:auto;
+}
