@@ -5,6 +5,7 @@ body{
     height:100%;
     padding:0;
     user-select:none;
+    overflow:hidden;
 }
 .actionbar{
     display:grid;
@@ -238,4 +239,61 @@ greet{
 view embed{
     display:block;
     margin:auto;
+}
+view h2{
+    font-weight:300;
+    border-top:1px solid black;
+}
+content{
+    width:100%;
+    height:100%;
+    overflow:normal;
+    font-size:16px;
+    display:block;
+}
+ds{
+    font-weight:350;
+    font-size:22px;
+    padding-left:5px;
+    padding-bottom:5px;
+    color:#48558B;
+}
+content embed{
+    width:90%;
+    height:auto;
+    display:block;
+    margin:2px auto;
+    border-radius:5px;
+}
+content p{
+    padding:10px;
+    box-sizing:border-box;
+    text-indent:50px;
+    font-size:14px;
+}
+footer{
+    display:block;
+    width:90%;
+    height:150px;
+    box-shadow:0px 0px 6px #808080;
+    margin:10px auto;
+    margin-bottom:80px;
+    border-radius:5px;
+    white-space:pre;
+}
+content artical{
+    box-shadow:0px 0px 6px #5E5E5E;
+    display:block;
+    width:98%;
+    height:fit-content;
+    margin:6px auto;
+    border-radius:5px;
+    padding-top:10px;
+}
+ScrollView{
+    width:100%;
+    height:100%;
+    display:block;
+    overflow:scroll;
+    background:block;
 }

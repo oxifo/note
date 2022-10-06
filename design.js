@@ -1,14 +1,17 @@
 /*
  actionbar type:a/b/c;
 */
+const footer="<footer></footer>";
 const actionbar=document.querySelector("actionbar");
 var dir =0;
+const rdn =Math.floor(Math.random()*data.length);
 const toggle = document.querySelector("toggle");
 var touch =0;
 const view =document.querySelector("view");
 const other =document.querySelector("other");
 const layout =document.querySelector("layout");
 const nav =document.getElementsByTagName("nav");
+const content=document.querySelector("content");
 const menu =document.querySelector("menu");
 let name=document.querySelector("name");
  if (actionbar.textContent=="actionbar"){
@@ -55,11 +58,21 @@ let name=document.querySelector("name");
       setTimeout(function(){
          let data ="JoinWithUs.txt";
          fetch(data).then(x=>x.text()).then(f=>view.innerHTML=f);
-     },100);
+     },450);
   }
  let joinUs = toggle.onclick =function(){
      other.style.top="100%";
  }
  function openMail(){
      open("oxifo197@gmail.com");
+ }
+ function term(){
+     drawback();
+      setTimeout(function(){
+         let data ="term.txt";
+         fetch(data).then(x=>x.text()).then(f=>view.innerHTML=f);
+     },100);
+ }
+ window.onload =function(){
+     fetch(data[rdn].path+".txt").then(x=>x.text()).then(y=>content.innerHTML=y+footer);
  }

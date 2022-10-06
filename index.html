@@ -11,24 +11,38 @@
     <body>
         <layout>
             <actionbar>actionbar</actionbar>
-            <content></content>
-            <other>
-                <toggle></toggle>
-                <view></view>
-            </other>
+            <ScrollView>
+                <ads></ads>
+                <content></content>
+                <other>
+                    <toggle></toggle>
+                    <view></view>
+                </other>
+            </ScrollView>
         </layout>
         <menu>
             <logo>
-                <embed src="logo.jpg"/>
+                <embed src="logo.jpg" />
                 <h>Note</h>
                 <descript>Read And Learn</descript>
             </logo>
-            <nav>Post For You<new>+5</new></nav>
-            <nav>Latest Post<new>+15</new></nav>
-            <nav>Terms and Policy</nav>
-            <nav onclick="openMail()">Send Email</nav>
-            <nav onclick="joinwithus()">Join with Us</nav>
+            <nav>
+                Post For You<new>+5</new>
+            </nav>
+            <nav>
+                Latest Post<new>+15</new>
+            </nav>
+            <nav onclick="term()">
+                Terms and Policy
+            </nav>
+            <nav onclick="openMail()">
+                Send Email
+            </nav>
+            <nav onclick="joinwithus()">
+                my info
+            </nav>
         </menu>
+        <script src="data.js"></script>
         <script src="main.js"></script>
         <script src="design.js"></script>
     </body>
