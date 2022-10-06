@@ -53,7 +53,7 @@ let name=document.querySelector("name");
   function joinwithus(){
       drawback();
       setTimeout(function(){
-         let data ="data/JoinWithUs.txt";
+         let data ="JoinWithUs.txt";
          fetch(data).then(x=>x.text()).then(f=>view.innerHTML=f);
      },100);
   }
