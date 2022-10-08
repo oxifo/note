@@ -85,4 +85,32 @@ ear:before{
   position:absolute;
   bottom:-1px;
   right:-112px;
+}toast{
+    width:100%;
+    height:fit-content;
+    padding:15px 5px;
+    position:fixed;
+    bottom:-100%;
+    background:white;
+    box-shadow:0px 0px 6px #7E7E7E;
+    transition-duration:0.5s;
+}
+left{
+    display:block;
+    width:20px;
+    height:20px;
+    border-left:2px solid #7A7A7A;
+    border-top:2px solid #7A7A7A;
+    margin:20px 25px;
+    transform:rotate(-45deg);
+}
+right{
+    display:block;
+    width:20px;
+    height:20px;
+    border-left:2px solid #7A7A7A;
+    border-top:2px solid #7A7A7A;
+    margin:-41px auto;
+    transform:rotate(130deg);
+    
 }
