@@ -19,6 +19,6 @@ const data =[{
      {
          id:3,
          path:"lanmharr",
-         title:"Are you kidden me"
+         title:"set way"
      }
      ];

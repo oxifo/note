@@ -203,8 +203,7 @@ view artical{
     width:fit-content;
     height:fit-content;
     padding:5px;
-    box-shadow:border-width;
-    margin:10px auto;
+    margin:30px auto;
     box-shadow:0px 0px 6px #9D9D9D;
     border-radius:5px;
 }
@@ -221,7 +220,7 @@ view p{
 }
 ul{
     padding:10px;
-    margin:1px;
+    margin:10px auto;
     box-sizing:border-box;
     display:block;
     box-shadow:0px 0px 7px #A1A1A1;
@@ -361,4 +360,43 @@ view artical embed{
     height:auto;
     display:block;
     margin:8px auto;
+}
+input[type="text"]{
+    outline:none;
+    border:1px solid #6F6F6F;
+    border-radius:5px;
+    width:80%;
+    height:46px;
+    margin:10px;
+    font-size:23px;
+    box-sizing:border-box;
+    padding-left:10px;
+}
+card{
+    display:grid;
+    width:99%;
+    height:fit-content;
+    box-shadow:0px 0px 6px #626262;
+    border-radius:5px;
+    margin:5px auto;
+    grid-template-columns:93% auto;
+}
+card search{
+    left:-40px;
+    top:12px;
+}
+result{
+    width:100%;
+    height:fit-content;
+    overflow:scroll;
+}
+showAs{
+    display:block;
+    width:98%;
+    height:fit-content;
+    margin:6px auto;
+    box-shadow:0px 0px 6px #777777;
+    border-radius:5px;
+    overflow:scroll;
+    min-height:250px;
 }

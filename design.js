@@ -2,14 +2,14 @@
  actionbar type:a/b/c;
 */
 let n = null;
-var np =0;
+var np = 0;
 const footer = "<footer onclick='Next()'></footer>";
 const actionbar = document.querySelector("actionbar");
-let list =[];
+let list = [];
 let p = 0;
 var dir = 0;
 const rdn = Math.floor(Math.random()*data.length);
-const add =document.querySelector("right");
+const add = document.querySelector("right");
 const toggle = document.querySelector("toggle");
 var new_ = document.querySelector("new");
 var touch = 0;
@@ -19,13 +19,13 @@ const layout = document.querySelector("layout");
 const lasted = localStorage.getItem("lasted");
 const nav = document.getElementsByTagName("nav");
 const content = document.querySelector("content");
-const button="<left onclick='minus()'></left><right onclick='plus()'></right>";
-const http = "https://oxifo.github.io/note/";
+const button = "<left onclick='minus()'></left><right onclick='plus()'></right>";
+const http ="https://oxifo.github.io/note/";
 const menu = document.querySelector("menu");
 let name = document.querySelector("name");
 if (actionbar.textContent == "actionbar") {
     actionbar.classList.add("actionbar");
-    actionbar.innerHTML = "<bars onclick='callMenu()'><bar></bar></bars><name>Note</name><search></search>";
+    actionbar.innerHTML = "<bars onclick='callMenu()'><bar></bar></bars><name>Note</name><search onclick='search()'></search>";
     menu.ontouchmove = function(ev) {
         var x = ev.touches[0].clientX;
         menu.style.left = touch;
@@ -58,10 +58,13 @@ function callMenu() {
     layout.style.filter = "brightness(0.5)";
 }
 function drawback() {
-    menu.style.left = "100%";
-    layout.style.filter = "brightness(1)";
-    other.style.top = "0px";
     other.style.display = "block";
+    other.onScrollTop = 0;
+    setTimeout(function() {
+        menu.style.left = "100%";
+        layout.style.filter = "brightness(1)";
+        other.style.top = "0px";
+    }, 200);
 }
 function joinwithus() {
     drawback();
@@ -74,7 +77,7 @@ let joinUs = toggle.onclick = function() {
     other.style.top = "100%";
 }
 function openMail() {
-    open("oxifo197@gmail.com");
+    window.location.href.replace("oxifo197@gmail.com");
 }
 function term() {
     drawback();
@@ -125,33 +128,62 @@ function Next(t) {
         open(window.location.href.concat("?id="+data[n].id));
     }, 10);
 }
-function newest() {
+function Toast(m,t) {
     let toast = document.querySelector("toast");
+    toast.style.bottom = "0px";
+    toast.textContent = m;
+    setTimeout(function() {
+        toast.style.bottom = "-100%";
+    },t);
+}
+function newest() {
     if (data.length - lasted !== 0) {
         drawback();
         setTimeout(function() {
-            fetch(data[0].path+".txt").then(x=>x.text()).then(y=>view.innerHTML=y+button);
+            fetch(data[0].path+".txt").then(x=>x.text()).then(y=>view.innerHTML = y+button);
         }, 350);
-    }else {
-        toast.style.bottom = "0px";
+    } else {
+        Toast("No Found The New Data",3500);
         menu.style.left = "100%";
         layout.style.filter = "brightness(1)";
-        toast.textContent ="No Post Found";
-        setTimeout(function() {
-            toast.style.bottom = "-100%";
-        },3500);
     }
 }
-function plus(){
-    if(np < data.length){
-    np +=1;
-    fetch(data[np].path.concat(".txt")).then(x=>x.text()).then(y=>view.innerHTML=y+button);
-    }else{
-    np -=1;
-    fetch(data[np].path.concat(".txt")).then(x=>x.text()).then(y=>view.innerHTML=y+button);
+function plus() {
+    if (np < data.length) {
+        np += 1;
+        fetch(data[np].path.concat(".txt")).then(x=>x.text()).then(y=>view.innerHTML = y+button);
+    } else {
+        np -= 1;
+        fetch(data[np].path.concat(".txt")).then(x=>x.text()).then(y=>view.innerHTML = y+button);
     }
- }
- function minus(){
-    np -=1;
-    fetch(data[np].path.concat(".txt")).then(x=>x.text()).then(y=>view.innerHTML=y+button);
- }
+}
+function minus() {
+    np -= 1;
+    fetch(data[np].path.concat(".txt")).then(x=>x.text()).then(y=>view.innerHTML = y+button);
+}
+function search() {
+    drawback(); FETCH("search.html", view);
+}
+function FETCH(l, t) {
+    fetch(l).then(x=>x.text()).then(y=>t.innerHTML = y)
+}
+function result() {
+  let input =document.querySelector(".search").value;
+    if(input !==""){
+        const dispy = document.querySelector("result");
+    let rsl = data.filter(function(r) {
+        return r.title.toUpperCase().indexOf(input.toUpperCase()) > -1;
+    });
+    let getResult = rsl.map(x=> {
+        return "<showAs>please wait...</showAs>";
+    });
+    dispy.innerHTML = getResult.join("");
+    setTimeout(function() {
+        const showAs = document.getElementsByTagName("showAs");
+        rsl.forEach((v, i, arr)=> {
+            FETCH(rsl[i].path+".txt", showAs[i]);
+        });
+    Toast("we've found ".concat(rsl.length)+" post",3500);
+    }, 100);
+    }
+}
