@@ -1,7 +1,7 @@
 /*
  actionbar type:a/b/c;
 */
-let n = null;
+let n =1;
 var np = 0;
 const footer = "<footer onclick='Next()'></footer>";
 const actionbar = document.querySelector("actionbar");
@@ -143,7 +143,7 @@ function newest() {
             fetch(data[0].path+".txt").then(x=>x.text()).then(y=>view.innerHTML = y+button);
         }, 350);
     } else {
-        Toast("No Found The New Data",3500);
+        Toast("Not Found The New Data",3500);
         menu.style.left = "100%";
         layout.style.filter = "brightness(1)";
     }
