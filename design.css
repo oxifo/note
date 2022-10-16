@@ -419,3 +419,29 @@ showAs artical embed{
 showAs artical{
     box-shadow:none;
 }
+short{
+    width:95%;
+    height:fit-content;
+    border-radius:5px;
+    box-shadow:0px 0px 7px #717171;
+    display:block;
+    margin:25px auto;
+}
+short p{
+    margin:5px;
+    white-space:pre-wrap;
+    text-align:center;
+    clear:left;
+    padding:0;
+}
+short embed{
+    width:40%;
+    height:auto;
+    border:2px solid #878787;
+    float:right;
+    margin:30px auto;
+    display:block;
+}
+footer short{
+    box-shadow:none;
+}

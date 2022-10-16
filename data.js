@@ -1,4 +1,12 @@
 const data = [{
+    id:10,
+    path:"postID10",
+    title:"ဆောင်း"
+},{
+    id:9,
+    path:"postID9",
+    title:"အဆင်မပြေပေမဲ့ရပါတယ်"
+    },{
     id:"BestFriends",
     path:"BestFriend",
     title:"သူငယ်ချင်းတွေကိုသတိရတယ် အတူကဲခဲ့ကြတဲ့အရင်ချိန်တွေရောပေါ့ 😔😔။",
