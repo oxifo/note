@@ -1,9 +1,9 @@
 /*
  actionbar type:a/b/c;
 */
-let n =1;
+let n = 1;
 var np = 0;
-const footer = "<footer onclick='Next()'></footer>";
+const footer = "<footer id='relative' onclick='Next()'></footer>";
 const actionbar = document.querySelector("actionbar");
 let list = [];
 let p = 0;
@@ -20,7 +20,7 @@ const lasted = localStorage.getItem("lasted");
 const nav = document.getElementsByTagName("nav");
 const content = document.querySelector("content");
 const button = "<left onclick='minus()'></left><right onclick='plus()'></right>";
-const http ="https://oxifo.github.io/note/";
+const http = "http://localhost:26543/storage/emulated/0/note/index.html";
 const menu = document.querySelector("menu");
 let name = document.querySelector("name");
 if (actionbar.textContent == "actionbar") {
@@ -77,7 +77,10 @@ let joinUs = toggle.onclick = function() {
     other.style.top = "100%";
 }
 function openMail() {
-    window.location.href.replace("oxifo197@gmail.com");
+    setTimeout(function() {
+        
+    }, 200);
+  open("oxifo197@gmail.com");
 }
 function term() {
     drawback();
@@ -87,6 +90,9 @@ function term() {
     }, 100);
 }
 window.onload = function() {
+    const icon = document.querySelector("#icon");
+    const pt = document.querySelector("title");
+    //pt =page title
     if (window.location.href == http) {
         fetch(data[rdn].path+".txt").then(x=>x.text()).then(y=>content.innerHTML = y+footer);
         if (rdn != data.length) {
@@ -104,6 +110,10 @@ window.onload = function() {
             return http+"?id="+gd.id == window.location.href;
         });
         fetch(show[0].path+".txt").then(x=>x.text()).then(y=>content.innerHTML = y);
+        pt.textContent = show[0].title.toLowerCase();
+        icon.href = show[0].icon;
+        Toast(show[0].title,4500);
+
     }
     localStorage.setItem("lasted", data.length);
     if (lasted == data.length) {
@@ -128,13 +138,13 @@ function Next(t) {
         open(window.location.href.concat("?id="+data[n].id));
     }, 10);
 }
-function Toast(m,t) {
+function Toast(m, t) {
     let toast = document.querySelector("toast");
     toast.style.bottom = "0px";
     toast.textContent = m;
     setTimeout(function() {
         toast.style.bottom = "-100%";
-    },t);
+    }, t);
 }
 function newest() {
     if (data.length - lasted !== 0) {
@@ -143,7 +153,7 @@ function newest() {
             fetch(data[0].path+".txt").then(x=>x.text()).then(y=>view.innerHTML = y+button);
         }, 350);
     } else {
-        Toast("Not Found The New Data",3500);
+        Toast("Not Found The New Data", 3500);
         menu.style.left = "100%";
         layout.style.filter = "brightness(1)";
     }
@@ -168,22 +178,26 @@ function FETCH(l, t) {
     fetch(l).then(x=>x.text()).then(y=>t.innerHTML = y)
 }
 function result() {
-  let input =document.querySelector(".search").value;
-    if(input !==""){
+    let input = document.querySelector(".search").value;
+    if (input !== "") {
         const dispy = document.querySelector("result");
-    let rsl = data.filter(function(r) {
-        return r.title.toUpperCase().indexOf(input.toUpperCase()) > -1;
-    });
-    let getResult = rsl.map(x=> {
-        return "<showAs>please wait...</showAs>";
-    });
-    dispy.innerHTML = getResult.join("");
-    setTimeout(function() {
-        const showAs = document.getElementsByTagName("showAs");
-        rsl.forEach((v, i, arr)=> {
-            FETCH(rsl[i].path+".txt", showAs[i]);
+        let rsl = data.filter(function(r) {
+            return r.title.toUpperCase().indexOf(input.toUpperCase()) > -1;
         });
-    Toast("we've found ".concat(rsl.length)+" post",3500);
-    }, 100);
+        let getResult = rsl.map(x=> {
+            return "<showAs onclick='readResult("+x.id+")'>please wait...</showAs>";
+        });
+        dispy.innerHTML = getResult.join("");
+        setTimeout(function() {
+            const showAs = document.getElementsByTagName("showAs");
+            rsl.forEach((v, i, arr)=> {
+                FETCH(rsl[i].path+".txt", showAs[i]);
+            });
+            Toast("we've found ".concat(rsl.length)+" post", 3500);
+        }, 100);
     }
+   return document.querySelector(".search").value=input.toLowerCase();
+}
+function readResult(id){
+  open(http+"?id="+id);
 }

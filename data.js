@@ -1,7 +1,13 @@
 const data = [{
-    id:7,
-    path:"computervirus",
-    title:"how to protest my computer away from the virus attack"
+    id:"BestFriends",
+    path:"BestFriend",
+    title:"သူငယ်ချင်းတွေကိုသတိရတယ် အတူကဲခဲ့ကြတဲ့အရင်ချိန်တွေရောပေါ့ 😔😔။",
+    icon:"icon1.jpg"
+},{
+    id: 7,
+    path: "computervirus",
+    title: "how to protest my computer away from the virus attack",
+    icon:"pen.png"
 }, {
     id: 6,
     path: "smartphoneupdate6",

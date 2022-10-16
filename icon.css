@@ -86,7 +86,7 @@ ear:before{
   bottom:-1px;
   right:-112px;
 }toast{
-    width:100%;
+    width:90%;
     height:fit-content;
     padding:15px 5px;
     position:fixed;
@@ -94,6 +94,11 @@ ear:before{
     background:white;
     box-shadow:0px 0px 6px #7E7E7E;
     transition-duration:0.5s;
+    text-align:center;
+    font-family:Times New Roman;
+    left:3.5%;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
 }
 left{
     display:block;

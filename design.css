@@ -374,7 +374,7 @@ input[type="text"]{
 }
 card{
     display:grid;
-    width:99%;
+    width:90%;
     height:fit-content;
     box-shadow:0px 0px 6px #626262;
     border-radius:5px;
@@ -392,11 +392,30 @@ result{
 }
 showAs{
     display:block;
-    width:98%;
-    height:fit-content;
+    width:95%;
+    height:250px;
     margin:6px auto;
     box-shadow:0px 0px 6px #777777;
     border-radius:5px;
-    overflow:scroll;
-    min-height:250px;
+    overflow:hidden;
+    padding:5px;
+    box-sizing:border-box;
+    
+}
+showAs p{
+    white-space:normal;
+    position:static;
+    margin-top:-50px;
+    text-indent:0px;
+}
+showAs artical embed{
+    width:150px;
+    height:auto;
+    float:left;
+    white-space:auto;
+    position:relative;
+    margin:5px;
+}
+showAs artical{
+    box-shadow:none;
 }
