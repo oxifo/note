@@ -8,7 +8,7 @@ const actionbar = document.querySelector("actionbar");
 let list = [];
 let p = 0;
 var dir = 0;
-const rdn = Math.floor(Math.random()*data.length);
+const rdn = Math.floor(Math.random()*(data.length/2));
 const add = document.querySelector("right");
 const toggle = document.querySelector("toggle");
 var new_ = document.querySelector("new");
@@ -20,7 +20,7 @@ const lasted = localStorage.getItem("lasted");
 const nav = document.getElementsByTagName("nav");
 const content = document.querySelector("content");
 const button = "<left onclick='minus()'></left><right onclick='plus()'></right>";
-const http = "https://oxifo.github.io/note/";
+const http = "http://oxifo.github.io/note/";
 const menu = document.querySelector("menu");
 let name = document.querySelector("name");
 if (actionbar.textContent == "actionbar") {
@@ -54,7 +54,7 @@ if (actionbar.textContent == "actionbar") {
 }
 function callMenu() {
     menu.style.left = "23.6%";
-    menu.style.transitionDuration = ".5s";
+    menu.style.transitionDuration = "0.5s";
     layout.style.filter = "brightness(0.5)";
 }
 function drawback() {
@@ -77,10 +77,8 @@ let joinUs = toggle.onclick = function() {
     other.style.top = "100%";
 }
 function openMail() {
-    setTimeout(function() {
-        
-    }, 200);
-  open("oxifo197@gmail.com");
+    setTimeout(function() {}, 200);
+    open("oxifo197@gmail.com");
 }
 function term() {
     drawback();
@@ -94,6 +92,7 @@ window.onload = function() {
     const pt = document.querySelector("title");
     //pt =page title
     if (window.location.href == http) {
+        icon.href = "pen.png";
         fetch(data[rdn].path+".txt").then(x=>x.text()).then(y=>content.innerHTML = y+footer);
         if (rdn != data.length) {
             p = rdn+1;
@@ -109,10 +108,10 @@ window.onload = function() {
         let show = data.filter(function(gd) {
             return http+"?id="+gd.id == window.location.href;
         });
-        fetch(show[0].path+".txt").then(x=>x.text()).then(y=>content.innerHTML = y);
+        fetch(show[0].path+".txt").then(x=>x.text()).then(y=>content.innerHTML = y+footer);
         pt.textContent = show[0].title.toLowerCase();
         icon.href = show[0].icon;
-        Toast(show[0].title,4500);
+        Toast(show[0].title, 4500);
 
     }
     localStorage.setItem("lasted", data.length);
@@ -121,6 +120,15 @@ window.onload = function() {
     } else {
         new_.textContent = data.length - lasted;
     }
+    setTimeout(function() {
+        const ft =document.querySelector("footer");
+        if(ft.textContent ==""){
+            fetch(data[rdn].path.concat(".txt")).then(x=>x.text()).then(y=>ft.innerHTML=y);
+            ft.onclick=function(){
+                open(http.concat("?id=")+data[rdn].id);
+            }
+        }
+    },1500);
 }
 function NextX() {
     if (rdn != data.length) {
@@ -135,7 +143,7 @@ function NextX() {
 }
 function Next(t) {
     setTimeout(function() {
-        open(window.location.href.concat("?id="+data[n].id));
+        open(http.concat("?id="+data[n].id));
     }, 10);
 }
 function Toast(m, t) {
@@ -196,8 +204,11 @@ function result() {
             Toast("we've found ".concat(rsl.length)+" post", 3500);
         }, 100);
     }
-   return document.querySelector(".search").value=input.toLowerCase();
+    return document.querySelector(".search").value = input.toLowerCase();
 }
-function readResult(id){
-  open(http+"?id="+id);
+function readResult(id) {
+    open(http+"?id="+id);
+}
+function PDFD(r){
+    open(r);
 }
