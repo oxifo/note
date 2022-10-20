@@ -20,7 +20,7 @@ const lasted = localStorage.getItem("lasted");
 const nav = document.getElementsByTagName("nav");
 const content = document.querySelector("content");
 const button = "<left onclick='minus()'></left><right onclick='plus()'></right>";
-const http = "http://oxifo.github.io/note/";
+const http = "https://oxifo.github.io/note/";
 const menu = document.querySelector("menu");
 let name = document.querySelector("name");
 if (actionbar.textContent == "actionbar") {
