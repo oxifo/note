@@ -1,0 +1,5 @@
+<artical>
+<embed src="alibaba.png"/>
+<p><b>ဂျက်မားနှင့်အလီဘာဘာ</b>စာအုပ်ကို ဒေါင်းလုပ်ဆွဲရန်</p>
+<button onclick="PDFD('alibaba.pdf')">Download E-Book</button>
+</artical>
