@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Editor Choice</title>
+        <meta name="viewport"content="width=device-width,initial-scale=1.0"/>
+        <script src="eruda.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            overflow:hidden;
+        }
+        
+        #book{
+            width:100%;
+            height:185px;
+            background:transparent;
+            position:fixed;
+            top:0px;
+        }
+        #book mom{
+            width:fit-content;
+            height:250px;
+            display:grid;
+            grid-template-columns:auto auto auto auto auto;
+            overflow:hidden;
+            position:absolute;
+            transition-duration:0.5s;
+            left:0px;
+            
+        }
+        div{
+            width:350px;
+            height:100%;
+            background:blue;
+            margin:5px;
+            text-align:right;
+            box-sizing:border-box;
+        }
+        .p img{
+            float:left;
+            text-align:center;
+        }
+        .p p{
+            margin:50px auto;
+            text-align:center;
+            display:block;
+            width:200px;
+            color:#FFFB00;
+            
+        }
+        #artical{
+            width:100%;
+            height:70%;
+            background:#C5C5C5;
+            margin:200px auto;
+            font-family:Times New Roman;
+        }
+    </style>
+    </head>
+    <body>
+     <section id="book">
+        <mom>
+         <div class="p"></div>
+         <div class="p"></div>
+         <div class="p"></div>
+         <div class="p"></div>
+         <div class="p"></div>
+        </mom>
+     </section>
+     <section id="artical">
+         Sorry!,This ability isn't work for now.
+     </section>
+     <script type="text/javascript">
+       window.onload = function(){
+       var logic = 0;
+       var left =0;
+       let mom =document.querySelector("mom");
+       var div =document.getElementsByClassName("p");
+          for(var i=0;i<div.length;i++){
+              div[i].ontouchmove =function(e){
+                  logic =e.touches[0].clientX;
+              }
+              div[i].ontouchend = function(){
+                  if(logic <200 && left <350*4){
+                      left +=355;
+                      mom.style.left ="-"+left+"px";
+                  }else if(left >0){
+                      left -=355;
+                      mom.style.left="-"+left;
+                  }
+              }
+          }
+       }
+    function Download(link){
+        open("http://localhost:26543/storage/emulated/0/note/index.html?id="+link);
+    }
+    function LoadData(){
+        let b =document.getElementsByClassName("p");
+        const location ="/storage/emulated/0/BookShelf/cover/";
+        let url ="book.json";
+        
+        fetch(url).then(j=>j.json()).then(function(d){
+             for(var i=0;i<b.length;i++){
+                 b[i].innerHTML ="<img onclick='Download("+d[i].id+")'src='"+location+d[i].img+".png'/>"+"<p>"+d[i].dsc+"</p>";
+             }
+        });
+    }
+    LoadData();
+     </script>
+    </body>
+</html>

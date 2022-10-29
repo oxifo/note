@@ -197,16 +197,17 @@ view{
 view h1{
     font-size:23px;
     font-weight:350;
-    line-height:35px;
   }
 view artical{
     display:block;
     width:95%;
     height:fit-content;
-    padding:5px;
-    margin:30px auto;
+    padding:0px 5px;
+    margin:0px auto;
     box-shadow:0px 0px 6px #9D9D9D;
     border-radius:5px;
+    box-sizing:border-box;
+    
 }
 view li{
     list-style-position:inside;
@@ -240,6 +241,7 @@ greet{
 view embed{
     display:block;
     margin:auto;
+    width:100%;
 }
 view h2{
     font-weight:300;
@@ -285,10 +287,10 @@ content p{
 }
 footer{
     display:block;
-    width:90%;
-    height:150px;
+    width:96%;
+    height:220px;
     box-shadow:0px 0px 6px #808080;
-    margin:10px auto;
+    margin:15px auto;
     margin-bottom:80px;
     border-radius:5px;
     white-space:pre;
@@ -297,13 +299,14 @@ footer{
     position:relative;
 }
 content artical{
-    box-shadow:0px 0px 6px #5E5E5E;
+    box-shadow:0px 0px 6px #8D8D8D;
     display:block;
     width:98%;
     height:fit-content;
-    margin:6px auto;
-    border-radius:5px;
+    margin:0px auto;
+    border-radius:1px;
     padding-top:10px;
+    padding-bottom:15px;
 }
 ScrollView{
     width:100%;
@@ -330,7 +333,7 @@ footer embed{
     width:45%;
     height:auto;
     position:absolute;
-    top:-2px;
+    top:15px;
     left:5px;
 }
 footer artical{
@@ -338,13 +341,14 @@ footer artical{
 }
 footer p{
     width:55%;
-    height:170px;
+    height:200px;
     display:inline;
     overflow:hidden;
     text-overflow:ellipsis;
     position:absolute;
     right:0px;
     top:0px;
+    white-space:pre-wrap;
 }
 view artical{
     width:99%;
@@ -364,18 +368,22 @@ view artical embed{
     margin:8px auto;
 }
 artical button{
-    width:200px;
     height:auto;
     display:block;
     margin:20px auto;
     margin-bottom:50px;
+    padding:5px 10px;
+    border-radius:5px;
+    border:1px solid #1B2412;
+    outline:none;
+    font-size:20px;
 }
 input[type="text"]{
     outline:none;
     border:1px solid #6F6F6F;
     border-radius:5px;
     width:80%;
-    height:46px;
+    height:35px;
     margin:10px;
     font-size:23px;
     box-sizing:border-box;
@@ -458,4 +466,83 @@ footer short{
 showAs short{
     box-shadow:none;
     margin:0;
+}
+post{
+    padding-bottom:10px;
+    display:block;
+}
+post txt{
+    font-size:16px;
+    color:#528BFF;
+    box-sizing:border-box;
+    padding:10px 8px;
+    display:block;
+}
+showAs txt{
+    width:45%;
+    height:fit-content;
+    float:right;
+    position:relative;
+    display:block;
+}
+showAs embed{
+    width:45%;
+    height:100%;
+    border-radius:0px;
+}
+footer txt{
+    width:45%;
+    height:fit-content;
+    float:right;
+    position:relative;
+    display:block;
+    white-space:normal;
+    position:static;
+    text-indent:0px;
+    margin-top:-30px;
+    font-size:12px;
+}
+footer post embed{
+    width:45%;
+    height:100%;
+    border-radius:0px;
+}
+footer button{
+    display:none;
+}
+content ul{
+    width:75%;
+    height:190px;
+    display:block;
+    margin:0px auto;
+    border-radius:5px;
+}
+content li{
+    width:200px;
+    padding:5px 10px;
+    border-radius:4px;
+    display:block;
+    margin:9px auto;
+    box-shadow:0px 0px 6px #B5B5B5;
+    font-family:Times New Roman;
+    transition-duration:0.5s;
+    white-space:pre;
+}
+content li:active{
+    display:block;
+    overflow:hidden;
+    width:100px;
+    text-overflow:ellipsis;
+    white-space:pre;
+}
+footer::after{
+    content:"Suggest Post";
+    position:absolute;
+    top:0px;
+    background:white;
+    box-shadow:0px 0px 4px #C0C0C0;
+    border-radius:1px;
+    font-family:Times New Roman;
+    padding:8px;
+    color:blue;
 }

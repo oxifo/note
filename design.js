@@ -3,7 +3,7 @@
 */
 let n = 1;
 var np = 0;
-const footer = "<footer id='relative' onclick='Next()'></footer>";
+const footer = "<footer id='relative' onclick='Next()'></footer><hr><ul><li>Follow Us On FACEBOOK</li><li>OXA App Store</li><li>BookShelf</li></ul>";
 const actionbar = document.querySelector("actionbar");
 let list = [];
 let p = 0;
@@ -20,7 +20,7 @@ const lasted = localStorage.getItem("lasted");
 const nav = document.getElementsByTagName("nav");
 const content = document.querySelector("content");
 const button = "<left onclick='minus()'></left><right onclick='plus()'></right>";
-const http = "https://oxifo.github.io/note/";
+const http = "http://localhost:26543/storage/emulated/0/note/index.html";
 const menu = document.querySelector("menu");
 let name = document.querySelector("name");
 if (actionbar.textContent == "actionbar") {
@@ -77,8 +77,9 @@ let joinUs = toggle.onclick = function() {
     other.style.top = "100%";
 }
 function openMail() {
-    setTimeout(function() {}, 200);
-    open("oxifo197@gmail.com");
+    Toast("oxifo197@gmail.com", 5500);
+    menu.style.left = "100%";
+    layout.style.filter = "brightness(1)";
 }
 function term() {
     drawback();
@@ -121,14 +122,15 @@ window.onload = function() {
         new_.textContent = data.length - lasted;
     }
     setTimeout(function() {
-        const ft =document.querySelector("footer");
-        if(ft.textContent ==""){
-            fetch(data[rdn].path.concat(".txt")).then(x=>x.text()).then(y=>ft.innerHTML=y);
-            ft.onclick=function(){
+        const ft = document.querySelector("footer");
+        if (ft.textContent == "") {
+            fetch(data[rdn].path.concat(".txt")).then(x=>x.text()).then(y=>ft.innerHTML = y);
+            ft.onclick = function() {
                 open(http.concat("?id=")+data[rdn].id);
             }
         }
-    },1500);
+    },
+        1500);
 }
 function NextX() {
     if (rdn != data.length) {
@@ -144,7 +146,7 @@ function NextX() {
 function Next(t) {
     setTimeout(function() {
         open(http.concat("?id="+data[n].id));
-    }, 10);
+    }, 100);
 }
 function Toast(m, t) {
     let toast = document.querySelector("toast");
@@ -209,6 +211,14 @@ function result() {
 function readResult(id) {
     open(http+"?id="+id);
 }
-function PDFD(r){
+function PDFD(r) {
     open(r);
+}
+window.onclick = function() {
+    let audio = document.createElement("audio");
+    audio.src = "pop.mp3";
+    audio.play();
+}
+function EDC(){
+    open("For You/load.html");
 }
