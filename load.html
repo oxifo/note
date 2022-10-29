@@ -1,9 +1,9 @@
+ <script src="eruda.min.js"></script>
 <!doctype html>
 <html>
     <head>
         <title>Editor Choice</title>
         <meta name="viewport"content="width=device-width,initial-scale=1.0"/>
-        <script src="eruda.min.js"></script>
     <style>
         *{
             margin:0;
@@ -93,18 +93,20 @@
           }
        }
     function Download(link){
-        open("http://localhost:26543/storage/emulated/0/note/index.html?id="+link);
+        open("https://oxifo.github.io/note/"+link);
     }
     function LoadData(){
         let b =document.getElementsByClassName("p");
         const location ="/storage/emulated/0/BookShelf/cover/";
         let url ="book.json";
-        
+    
+    function FETCH(url,b){
         fetch(url).then(j=>j.json()).then(function(d){
              for(var i=0;i<b.length;i++){
                  b[i].innerHTML ="<img onclick='Download("+d[i].id+")'src='"+location+d[i].img+".png'/>"+"<p>"+d[i].dsc+"</p>";
              }
         });
+    }
     }
     LoadData();
      </script>
