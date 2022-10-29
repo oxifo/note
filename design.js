@@ -220,5 +220,5 @@ window.onclick = function() {
     audio.play();
 }
 function EDC(){
-    open("For You/load.html");
+    open("load.html");
 }
