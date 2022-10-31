@@ -1,0 +1,7 @@
+<artical>
+<p>Stability Buffer application အားဒေါင်းလုပ်ရယူပါ။</p>
+<embed src="apps.png"/>
+<p>file size - 1.6Mb</p>
+<p>develope by oxifo</p>
+<button onclick="PDFD('buffer.apk')">Download</button>
+</artical>
