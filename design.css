@@ -417,6 +417,7 @@ showAs{
     overflow:hidden;
     padding:5px;
     box-sizing:border-box;
+    position:relative;
     
 }
 showAs p{
@@ -477,6 +478,17 @@ post txt{
     box-sizing:border-box;
     padding:10px 8px;
     display:block;
+    white-space:pre-wrap;
+}
+post tt{
+    font-size:20px;
+    color:#000D29;
+    font-family:Times New Roman;
+    border-left:2px solid #30384C;
+    padding-left:5px;
+}
+showAs tt{
+    display:none;
 }
 showAs txt{
     width:45%;
@@ -489,6 +501,9 @@ showAs embed{
     width:45%;
     height:100%;
     border-radius:0px;
+    position:absolute;
+    left:0px;
+    top:0px;
 }
 footer txt{
     width:45%;
@@ -501,6 +516,10 @@ footer txt{
     text-indent:0px;
     margin-top:-30px;
     font-size:12px;
+}
+footer tt{
+    display:none;
+    visibility:hidden;
 }
 footer post embed{
     width:45%;
@@ -545,4 +564,21 @@ footer::after{
     font-family:Times New Roman;
     padding:8px;
     color:blue;
+}
+artical tt{
+    font-size:22px;
+    font-weight:450;
+    font-family:Times New Roman;
+    border-left:5px solid #604324;
+    padding-left:5px;
+    color:#00AFFF;
+    width:fit-content;
+    height:fit-content;
+}
+content artical tt{
+    display:block;
+    margin:3px 0px;
+    white-space:pre;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
